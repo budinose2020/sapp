@@ -49,6 +49,7 @@ class PDFObject implements ArrayAccess {
     protected $_oid = null;
     protected $_stream = null;
     protected $_value = null;
+    protected $_generation = null;
     
     public function __construct($oid, $value = null, $generation = 0) {
         if ($generation !== 0)

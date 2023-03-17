@@ -46,6 +46,10 @@ if (!defined('__BYTERANGE_SIZE'))
 class PDFSignatureObject extends PDFObject {
     // A placeholder for the certificate to use to sign the document
     protected $_certificate = null;
+
+    protected $_prev_content_size = null;
+    protected $_post_content_size = null;
+
     /**
      * Sets the certificate to use to sign
      * @param cert the pem-formatted certificate and private to use to sign as 

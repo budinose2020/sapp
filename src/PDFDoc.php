@@ -68,6 +68,8 @@ class PDFDoc extends Buffer {
     protected $_backup_state = [];
     protected $_certificate = null;
     protected $_appearance = null;
+    protected $_xref_table_version = null;
+    protected $_revisions = null;
 
     // Array of pages ordered by appearance in the final doc (i.e. index 0 is the first page rendered; index 1 is the second page rendered, etc.)
     // Each entry is an array with the following fields:

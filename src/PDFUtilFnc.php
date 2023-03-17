@@ -383,7 +383,7 @@ class PDFUtilFnc {
     public static function acquire_structure(&$_buffer, $depth = null) {
         // Get the first line and acquire the PDF version of the document
         $separator = "\r\n";
-        $pdf_version = strtok($_buffer, $separator);
+        $pdf_version = trim(strtok($_buffer, $separator));
         if ($pdf_version === false)
             return false;
 
@@ -681,7 +681,7 @@ class PDFUtilFnc {
             if ($k[$i] === $c_k + 1) {
                 $count++;
             } else {
-                $result = $result . "$i_k ${count}\n$references";
+                $result = $result . "$i_k {$count}\n$references";
                 $count = 1;
                 $i_k = $k[$i];
                 $references = "";
@@ -689,7 +689,7 @@ class PDFUtilFnc {
             $references .= sprintf("%010d 00000 n \n", $offsets[$k[$i]]);
             $c_k = $k[$i];
         }
-        $result = $result . "$i_k ${count}\n$references";
+        $result = $result . "$i_k {$count}\n$references";
 
         return "xref\n$result";            
     }    
